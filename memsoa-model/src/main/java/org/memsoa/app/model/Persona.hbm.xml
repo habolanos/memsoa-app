@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.Persona" table="PERSONA" schema="MEMSOA">
+        <id name="codigoPersona" type="string">
+            <column name="CODIGO_PERSONA" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="80" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="APELLIDO" length="80" />
+        </property>
+        <property name="nombreCompleto" type="string">
+            <column name="NOMBRE_COMPLETO" length="180" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="7" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="SEXO" length="10" />
+        </property>
+        <property name="emailPersona" type="string">
+            <column name="EMAIL_PERSONA" length="100" not-null="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" length="20" />
+        </property>
+        <property name="lenguaje" type="string">
+            <column name="LENGUAJE" length="20" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="UBICACION" length="20" />
+        </property>
+        <property name="urlImagenPerfil" type="string">
+            <column name="URL_IMAGEN_PERFIL" length="200" />
+        </property>
+        <property name="idProveedor" type="string">
+            <column name="ID_PROVEEDOR" length="50" />
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column name="FECHA_REGISTRO" length="7" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="date">
+            <column name="FECHA_MODIFICACION" length="7" not-null="true" />
+        </property>
+        <property name="clave" type="string">
+            <column name="CLAVE" length="20" not-null="true" />
+        </property>
+        <set name="proyectoPersonas" table="PROYECTO_PERSONA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PERSONA" length="20" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+        </set>
+        <set name="evaluacions" table="EVALUACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PERSONA" length="20" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.Evaluacion" />
+        </set>
+        <set name="proyectos" table="PROYECTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PROPIETARIO" length="20" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.Proyecto" />
+        </set>
+    </class>
+</hibernate-mapping>

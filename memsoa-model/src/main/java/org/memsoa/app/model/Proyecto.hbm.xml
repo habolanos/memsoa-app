@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.Proyecto" table="PROYECTO" schema="MEMSOA">
+        <id name="codigoProyecto" type="long">
+            <column name="CODIGO_PROYECTO" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="org.mamsoa.app.model.Persona" fetch="select">
+            <column name="PROPIETARIO" length="20" not-null="true" />
+        </many-to-one>
+        <property name="fechaRegistro" type="date">
+            <column name="FECHA_REGISTRO" length="7" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="date">
+            <column name="FECHA_MODIFICACION" length="7" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="10" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100" not-null="true" />
+        </property>
+        <property name="organizacion" type="string">
+            <column name="ORGANIZACION" length="50" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="50" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="OBSERVACION" length="200" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" length="20" />
+        </property>
+        <set name="implementacions" table="IMPLEMENTACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.Implementacion" />
+        </set>
+        <set name="proyectoPersonas" table="PROYECTO_PERSONA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+        </set>
+    </class>
+</hibernate-mapping>

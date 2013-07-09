@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.Patron" table="PATRON" schema="MEMSOA">
+        <id name="codigoPatron" type="string">
+            <column name="CODIGO_PATRON" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categoria" class="org.mamsoa.app.model.Categoria" fetch="select">
+            <column name="CODIGO_CATEGORIA" length="10" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="URL" length="200" />
+        </property>
+        <property name="problema" type="string">
+            <column name="PROBLEMA" length="2000" />
+        </property>
+        <property name="solucion" type="string">
+            <column name="SOLUCION" length="2000" />
+        </property>
+        <property name="aplicacion" type="string">
+            <column name="APLICACION" length="2000" />
+        </property>
+        <property name="impacto" type="string">
+            <column name="IMPACTO" length="2000" />
+        </property>
+        <set name="evaluacionPatrons" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PATRON" length="10" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+        </set>
+        <set name="principios" table="PATRON_PRINCIPIO" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_PATRON" length="10" not-null="true" />
+            </key>
+            <many-to-many entity-name="org.mamsoa.app.model.Principio">
+                <column name="CODIGO_PRINCIPIO" length="10" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.EvaluacionPatronPrincipio" table="EVALUACION_PATRON_PRINCIPIO" schema="MEMSOA">
+        <composite-id name="id" class="org.mamsoa.app.model.EvaluacionPatronPrincipioId">
+            <key-property name="codigoEvaluacionPatron" type="long">
+                <column name="CODIGO_EVALUACION_PATRON" precision="10" scale="0" />
+            </key-property>
+            <key-property name="codigoPrincipio" type="string">
+                <column name="CODIGO_PRINCIPIO" length="10" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="escalaByPrPublicadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+            <column name="PR_PUBLICADO_ESCALA" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="escalaByPrDocumentadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+            <column name="PR_DOCUMENTADO_ESCALA" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="escalaByPrImplementadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+            <column name="PR_IMPLEMENTADO_ESCALA" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="escalaByPrAdoptadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+            <column name="PR_ADOPTADO_ESCALA" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="evaluacionPatron" class="org.mamsoa.app.model.EvaluacionPatron" update="false" insert="false" fetch="select">
+            <column name="CODIGO_EVALUACION_PATRON" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="principio" class="org.mamsoa.app.model.Principio" update="false" insert="false" fetch="select">
+            <column name="CODIGO_PRINCIPIO" length="10" not-null="true" />
+        </many-to-one>
+        <many-to-one name="escalaByPrConceptualizadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+            <column name="PR_CONCEPTUALIZADO_ESCALA" length="10" not-null="true" />
+        </many-to-one>
+        <property name="prConceptualizadoPrecision" type="java.lang.Short">
+            <column name="PR_CONCEPTUALIZADO_PRECISION" precision="3" scale="0" />
+        </property>
+        <property name="prDocumentadoPrecision" type="java.lang.Short">
+            <column name="PR_DOCUMENTADO_PRECISION" precision="3" scale="0" />
+        </property>
+        <property name="prPublicadoPrecision" type="java.lang.Short">
+            <column name="PR_PUBLICADO_PRECISION" precision="3" scale="0" />
+        </property>
+        <property name="prAdoptadoPrecision" type="java.lang.Short">
+            <column name="PR_ADOPTADO_PRECISION" precision="3" scale="0" />
+        </property>
+        <property name="prImplementadoPrecision" type="java.lang.Short">
+            <column name="PR_IMPLEMENTADO_PRECISION" precision="3" scale="0" />
+        </property>
+        <property name="apreciacion" type="string">
+            <column name="APRECIACION" length="200" />
+        </property>
+        <property name="fechaActualizacion" type="date">
+            <column name="FECHA_ACTUALIZACION" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
