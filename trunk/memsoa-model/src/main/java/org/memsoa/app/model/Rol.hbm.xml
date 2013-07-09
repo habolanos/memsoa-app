@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.Rol" table="ROL" schema="MEMSOA">
+        <id name="codigoRol" type="string">
+            <column name="CODIGO_ROL" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" not-null="true" />
+        </property>
+        <set name="proyectoPersonas" table="PROYECTO_PERSONA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_ROL" length="10" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+        </set>
+    </class>
+</hibernate-mapping>

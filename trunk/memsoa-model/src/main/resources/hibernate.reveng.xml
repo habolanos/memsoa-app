@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="MEMSOA" match-name="CATEGORIA"/>
+  <table-filter match-schema="MEMSOA" match-name="ESCALA"/>
+  <table-filter match-schema="MEMSOA" match-name="ESTADO"/>
+  <table-filter match-schema="MEMSOA" match-name="EVALUACION"/>
+  <table-filter match-schema="MEMSOA" match-name="EVALUACION_PATRON"/>
+  <table-filter match-schema="MEMSOA" match-name="EVALUACION_PATRON_PRINCIPIO"/>
+  <table-filter match-schema="MEMSOA" match-name="IMPLEMENTACION"/>
+  <table-filter match-schema="MEMSOA" match-name="IMPLEMENTACION_CATEGORIA"/>
+  <table-filter match-schema="MEMSOA" match-name="PATRON"/>
+  <table-filter match-schema="MEMSOA" match-name="PATRON_PRINCIPIO"/>
+  <table-filter match-schema="MEMSOA" match-name="PERSONA"/>
+  <table-filter match-schema="MEMSOA" match-name="PRINCIPIO"/>
+  <table-filter match-schema="MEMSOA" match-name="PROYECTO"/>
+  <table-filter match-schema="MEMSOA" match-name="PROYECTO_PERSONA"/>
+  <table-filter match-schema="MEMSOA" match-name="ROL"/>
+</hibernate-reverse-engineering>

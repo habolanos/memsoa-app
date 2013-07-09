@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.mamsoa.app.model.Evaluacion" table="EVALUACION" schema="MEMSOA">
+        <id name="codigoEvaluacion" type="long">
+            <column name="CODIGO_EVALUACION" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="org.mamsoa.app.model.Persona" fetch="select">
+            <column name="CODIGO_PERSONA" length="20" not-null="true" />
+        </many-to-one>
+        <many-to-one name="implementacion" class="org.mamsoa.app.model.Implementacion" fetch="select">
+            <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="apreciacion" type="string">
+            <column name="APRECIACION" length="200" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="10" not-null="true" />
+        </property>
+        <property name="fechaActualizacion" type="date">
+            <column name="FECHA_ACTUALIZACION" length="7" not-null="true" />
+        </property>
+        <set name="evaluacionPatrons" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CODIGO_EVALUACION" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+        </set>
+    </class>
+</hibernate-mapping>
