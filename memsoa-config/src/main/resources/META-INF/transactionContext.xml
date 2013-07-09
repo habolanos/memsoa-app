@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+	
+	<aop:config>
+		<aop:pointcut id="allMethodLogicAdvisor" expression="execution(* org.memsoa.app.facades..*.*(..))" />
+		<aop:pointcut id="allMethodSvcAdvisor"   expression="execution(* org.memsoa.app.services..*.*(..))" />
+		<aop:pointcut id="allMethodDaoAdvisor"   expression="execution(* org.memsoa.app.dao..*.*(..))" />
+		
+		<aop:advisor pointcut-ref="allMethodLogicAdvisor" advice-ref="txAdvice" order="1" />
+		<aop:advisor pointcut-ref="allMethodSvcAdvisor" advice-ref="txAdvice" order="1" />
+		<aop:advisor pointcut-ref="allMethodDaoAdvisor" advice-ref="txAdvice" order="1" />
+
+		<aop:advisor pointcut-ref="allMethodDaoAdvisor" advice-ref="traceInterceptor" order="2" />
+	</aop:config>
+	
+	<tx:advice id="txAdvice">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	 
+	<!-- Interceptor de trace que loguea informacion sobre la invocacion a metodos -->
+	<bean id="traceInterceptor" class="org.springframework.aop.interceptor.CustomizableTraceInterceptor">
+		<property name="loggerName" value="org.memsoa.app.dao.DAO" />
+		<property name="enterMessage" value="Entrando al metodo $[targetClassShortName].$[methodName]($[arguments])" />
+		<property name="exitMessage" value="Saliendo del metodo $[targetClassShortName].$[methodName]" />
+	</bean>
+	
+</beans>
