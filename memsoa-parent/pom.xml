@@ -12,7 +12,7 @@
 		<org.springframework.version>3.1.0.RELEASE</org.springframework.version>
 		<org.springframework.security.version>3.0.0.RELEASE</org.springframework.security.version>
 		<org.hibernate.version>3.5.6-Final</org.hibernate.version>
-		<org.icefaces.version>1.8.2</org.icefaces.version>
+		<org.primefaces>3.5</org.primefaces>
 		<org.slf4j.version>1.6.0</org.slf4j.version>
 		<com.oracle>11.1.0</com.oracle>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,21 +74,39 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<additionalConfig>
-						<file>
-							<name>.settings/org.eclipse.core.resources.prefs</name>
-							<content>
-                <![CDATA[eclipse.preferences.version=1${line.separator}encoding/<project>=${project.build.sourceEncoding}${line.separator}]]>
-							</content>
-						</file>
-					</additionalConfig>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Repository Name</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Repository Name</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://localhost:8081/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://localhost:8081/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
