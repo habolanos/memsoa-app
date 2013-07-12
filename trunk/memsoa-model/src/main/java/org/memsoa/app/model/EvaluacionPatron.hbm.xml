@@ -3,30 +3,30 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.EvaluacionPatron" table="EVALUACION_PATRON" schema="MEMSOA">
+    <class name="org.memsoa.app.model.EvaluacionPatron" table="EVALUACION_PATRON" schema="MEMSOA">
         <id name="codigoEvaluacionPatron" type="long">
             <column name="CODIGO_EVALUACION_PATRON" precision="10" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="escalaByPtAdoptadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+        <many-to-one name="escalaByPtAdoptadoEscala" class="org.memsoa.app.model.Escala" fetch="select">
             <column name="PT_ADOPTADO_ESCALA" length="10" not-null="true" />
         </many-to-one>
-        <many-to-one name="escalaByPtPublicadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+        <many-to-one name="escalaByPtPublicadoEscala" class="org.memsoa.app.model.Escala" fetch="select">
             <column name="PT_PUBLICADO_ESCALA" length="10" not-null="true" />
         </many-to-one>
-        <many-to-one name="patron" class="org.mamsoa.app.model.Patron" fetch="select">
+        <many-to-one name="patron" class="org.memsoa.app.model.Patron" fetch="select">
             <column name="CODIGO_PATRON" length="10" not-null="true" unique="true" />
         </many-to-one>
-        <many-to-one name="escalaByPtConceptualizadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+        <many-to-one name="escalaByPtConceptualizadoEscala" class="org.memsoa.app.model.Escala" fetch="select">
             <column name="PT_CONCEPTUALIZADO_ESCALA" length="10" not-null="true" />
         </many-to-one>
-        <many-to-one name="escalaByPtImplementadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+        <many-to-one name="escalaByPtImplementadoEscala" class="org.memsoa.app.model.Escala" fetch="select">
             <column name="PT_IMPLEMENTADO_ESCALA" length="10" not-null="true" />
         </many-to-one>
-        <many-to-one name="escalaByPtDocumentadoEscala" class="org.mamsoa.app.model.Escala" fetch="select">
+        <many-to-one name="escalaByPtDocumentadoEscala" class="org.memsoa.app.model.Escala" fetch="select">
             <column name="PT_DOCUMENTADO_ESCALA" length="10" not-null="true" />
         </many-to-one>
-        <many-to-one name="evaluacion" class="org.mamsoa.app.model.Evaluacion" fetch="select">
+        <many-to-one name="evaluacion" class="org.memsoa.app.model.Evaluacion" fetch="select">
             <column name="CODIGO_EVALUACION" precision="10" scale="0" not-null="true" />
         </many-to-one>
         <property name="ptConceptualizadoPrecision" type="java.lang.Short">
@@ -54,7 +54,7 @@
             <key>
                 <column name="CODIGO_EVALUACION_PATRON" precision="10" scale="0" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
     </class>
 </hibernate-mapping>

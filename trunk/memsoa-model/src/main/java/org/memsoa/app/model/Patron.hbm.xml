@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Patron" table="PATRON" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Patron" table="PATRON" schema="MEMSOA">
         <id name="codigoPatron" type="string">
             <column name="CODIGO_PATRON" length="10" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="categoria" class="org.mamsoa.app.model.Categoria" fetch="select">
+        <many-to-one name="categoria" class="org.memsoa.app.model.Categoria" fetch="select">
             <column name="CODIGO_CATEGORIA" length="10" not-null="true" />
         </many-to-one>
         <property name="nombre" type="string">
@@ -33,13 +33,13 @@
             <key>
                 <column name="CODIGO_PATRON" length="10" not-null="true" unique="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
         <set name="principios" table="PATRON_PRINCIPIO" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="CODIGO_PATRON" length="10" not-null="true" />
             </key>
-            <many-to-many entity-name="org.mamsoa.app.model.Principio">
+            <many-to-many entity-name="org.memsoa.app.model.Principio">
                 <column name="CODIGO_PRINCIPIO" length="10" not-null="true" />
             </many-to-many>
         </set>

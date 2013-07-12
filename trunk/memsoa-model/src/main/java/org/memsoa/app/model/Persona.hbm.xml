@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Persona" table="PERSONA" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Persona" table="PERSONA" schema="MEMSOA">
         <id name="codigoPersona" type="string">
             <column name="CODIGO_PERSONA" length="20" />
             <generator class="assigned" />
@@ -54,19 +54,19 @@
             <key>
                 <column name="CODIGO_PERSONA" length="20" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+            <one-to-many class="org.memsoa.app.model.ProyectoPersona" />
         </set>
         <set name="evaluacions" table="EVALUACION" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="CODIGO_PERSONA" length="20" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.Evaluacion" />
+            <one-to-many class="org.memsoa.app.model.Evaluacion" />
         </set>
         <set name="proyectos" table="PROYECTO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PROPIETARIO" length="20" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.Proyecto" />
+            <one-to-many class="org.memsoa.app.model.Proyecto" />
         </set>
     </class>
 </hibernate-mapping>

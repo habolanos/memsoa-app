@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property> -->
+		<!-- <property name="hibernate.connection.password">memsoa</property> -->
+		<!-- <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property> -->
+		<!-- <property name="hibernate.connection.username">memsoa</property> -->
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.Ingres10Dialect</property> -->
+		<mapping resource="org/memsoa/app/model/Categoria.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Escala.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Estado.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Evaluacion.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/EvaluacionPatron.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/EvaluacionPatronPrincipio.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Implementacion.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/ImplementacionCategoria.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Patron.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Persona.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Principio.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Proyecto.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/ProyectoPersona.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/Rol.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

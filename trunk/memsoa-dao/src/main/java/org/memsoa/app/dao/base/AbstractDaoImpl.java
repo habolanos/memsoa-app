@@ -5,6 +5,7 @@ package org.memsoa.app.dao.base;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -62,6 +63,7 @@ public abstract class AbstractDaoImpl<E,K extends Serializable> implements Abstr
 	public E findById(K id) throws Exception{
 		return (E)getSession().get(entityClass, id);
 	}
+	
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
 	 *@date 24/06/2013

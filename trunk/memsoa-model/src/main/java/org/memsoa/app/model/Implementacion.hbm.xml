@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Implementacion" table="IMPLEMENTACION" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Implementacion" table="IMPLEMENTACION" schema="MEMSOA">
         <id name="codigoImplementacion" type="long">
             <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="proyecto" class="org.mamsoa.app.model.Proyecto" fetch="select">
+        <many-to-one name="proyecto" class="org.memsoa.app.model.Proyecto" fetch="select">
             <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
         </many-to-one>
         <property name="fechaRegistro" type="date">
@@ -30,13 +30,13 @@
             <key>
                 <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.Evaluacion" />
+            <one-to-many class="org.memsoa.app.model.Evaluacion" />
         </set>
         <set name="implementacionCategorias" table="IMPLEMENTACION_CATEGORIA" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.ImplementacionCategoria" />
+            <one-to-many class="org.memsoa.app.model.ImplementacionCategoria" />
         </set>
     </class>
 </hibernate-mapping>

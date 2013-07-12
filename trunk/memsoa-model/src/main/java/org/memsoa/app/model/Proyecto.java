@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Proyecto implements java.io.Serializable {
 
-	private long codigoProyecto;
+	private Long codigoProyecto;
 	private Persona persona;
 	private Date fechaRegistro;
 	private Date fechaModificacion;
@@ -27,7 +27,7 @@ public class Proyecto implements java.io.Serializable {
 	public Proyecto() {
 	}
 
-	public Proyecto(long codigoProyecto, Persona persona, Date fechaRegistro,
+	public Proyecto(Long codigoProyecto, Persona persona, Date fechaRegistro,
 			Date fechaModificacion, String estado, String nombre) {
 		this.codigoProyecto = codigoProyecto;
 		this.persona = persona;
@@ -37,7 +37,7 @@ public class Proyecto implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Proyecto(long codigoProyecto, Persona persona, Date fechaRegistro,
+	public Proyecto(Long codigoProyecto, Persona persona, Date fechaRegistro,
 			Date fechaModificacion, String estado, String nombre,
 			String organizacion, String url, String observacion, String pais,
 			Set implementacions, Set proyectoPersonas) {
@@ -55,11 +55,11 @@ public class Proyecto implements java.io.Serializable {
 		this.proyectoPersonas = proyectoPersonas;
 	}
 
-	public long getCodigoProyecto() {
+	public Long getCodigoProyecto() {
 		return this.codigoProyecto;
 	}
 
-	public void setCodigoProyecto(long codigoProyecto) {
+	public void setCodigoProyecto(Long codigoProyecto) {
 		this.codigoProyecto = codigoProyecto;
 	}
 

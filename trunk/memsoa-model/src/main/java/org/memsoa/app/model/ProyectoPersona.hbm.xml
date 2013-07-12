@@ -3,8 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.ProyectoPersona" table="PROYECTO_PERSONA" schema="MEMSOA">
-        <composite-id name="id" class="org.mamsoa.app.model.ProyectoPersonaId">
+    <class name="org.memsoa.app.model.ProyectoPersona" table="PROYECTO_PERSONA" schema="MEMSOA">
+        <composite-id name="id" class="org.memsoa.app.model.ProyectoPersonaId">
             <key-property name="codigoProyecto" type="long">
                 <column name="CODIGO_PROYECTO" precision="10" scale="0" />
             </key-property>
@@ -15,13 +15,13 @@
                 <column name="CODIGO_PERSONA" length="20" />
             </key-property>
         </composite-id>
-        <many-to-one name="persona" class="org.mamsoa.app.model.Persona" update="false" insert="false" fetch="select">
+        <many-to-one name="persona" class="org.memsoa.app.model.Persona" update="false" insert="false" fetch="select">
             <column name="CODIGO_PERSONA" length="20" not-null="true" />
         </many-to-one>
-        <many-to-one name="proyecto" class="org.mamsoa.app.model.Proyecto" update="false" insert="false" fetch="select">
+        <many-to-one name="proyecto" class="org.memsoa.app.model.Proyecto" update="false" insert="false" fetch="select">
             <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
         </many-to-one>
-        <many-to-one name="rol" class="org.mamsoa.app.model.Rol" update="false" insert="false" fetch="select">
+        <many-to-one name="rol" class="org.memsoa.app.model.Rol" update="false" insert="false" fetch="select">
             <column name="CODIGO_ROL" length="10" not-null="true" />
         </many-to-one>
     </class>
