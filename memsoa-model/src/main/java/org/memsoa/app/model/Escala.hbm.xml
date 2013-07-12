@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Escala" table="ESCALA" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Escala" table="ESCALA" schema="MEMSOA">
         <id name="codigoEscala" type="string">
             <column name="CODIGO_ESCALA" length="10" />
             <generator class="assigned" />
@@ -24,61 +24,61 @@
             <key>
                 <column name="PR_CONCEPTUALIZADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
         <set name="evaluacionPatronsForPtConceptualizadoEscala" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PT_CONCEPTUALIZADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
         <set name="evaluacionPatronPrincipiosForPrImplementadoEscala" table="EVALUACION_PATRON_PRINCIPIO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PR_IMPLEMENTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
         <set name="evaluacionPatronPrincipiosForPrAdoptadoEscala" table="EVALUACION_PATRON_PRINCIPIO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PR_ADOPTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
         <set name="evaluacionPatronPrincipiosForPrDocumentadoEscala" table="EVALUACION_PATRON_PRINCIPIO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PR_DOCUMENTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
         <set name="evaluacionPatronsForPtAdoptadoEscala" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PT_ADOPTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
         <set name="evaluacionPatronPrincipiosForPrPublicadoEscala" table="EVALUACION_PATRON_PRINCIPIO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PR_PUBLICADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatronPrincipio" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatronPrincipio" />
         </set>
         <set name="evaluacionPatronsForPtPublicadoEscala" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PT_PUBLICADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
         <set name="evaluacionPatronsForPtDocumentadoEscala" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PT_DOCUMENTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
         <set name="evaluacionPatronsForPtImplementadoEscala" table="EVALUACION_PATRON" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="PT_IMPLEMENTADO_ESCALA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.EvaluacionPatron" />
+            <one-to-many class="org.memsoa.app.model.EvaluacionPatron" />
         </set>
     </class>
 </hibernate-mapping>

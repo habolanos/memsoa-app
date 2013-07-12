@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Rol" table="ROL" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Rol" table="ROL" schema="MEMSOA">
         <id name="codigoRol" type="string">
             <column name="CODIGO_ROL" length="10" />
             <generator class="assigned" />
@@ -15,7 +15,7 @@
             <key>
                 <column name="CODIGO_ROL" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+            <one-to-many class="org.memsoa.app.model.ProyectoPersona" />
         </set>
     </class>
 </hibernate-mapping>

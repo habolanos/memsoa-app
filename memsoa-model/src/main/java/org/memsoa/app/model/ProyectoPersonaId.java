@@ -7,25 +7,25 @@ package org.memsoa.app.model;
  */
 public class ProyectoPersonaId implements java.io.Serializable {
 
-	private long codigoProyecto;
+	private Long codigoProyecto;
 	private String codigoRol;
 	private String codigoPersona;
 
 	public ProyectoPersonaId() {
 	}
 
-	public ProyectoPersonaId(long codigoProyecto, String codigoRol,
+	public ProyectoPersonaId(Long codigoProyecto, String codigoRol,
 			String codigoPersona) {
 		this.codigoProyecto = codigoProyecto;
 		this.codigoRol = codigoRol;
 		this.codigoPersona = codigoPersona;
 	}
 
-	public long getCodigoProyecto() {
+	public Long getCodigoProyecto() {
 		return this.codigoProyecto;
 	}
 
-	public void setCodigoProyecto(long codigoProyecto) {
+	public void setCodigoProyecto(Long codigoProyecto) {
 		this.codigoProyecto = codigoProyecto;
 	}
 
@@ -69,7 +69,7 @@ public class ProyectoPersonaId implements java.io.Serializable {
 	public int hashCode() {
 		int result = 17;
 
-		result = 37 * result + (int) this.getCodigoProyecto();
+		result = 37 * result + this.getCodigoProyecto().intValue();
 		result = 37 * result
 				+ (getCodigoRol() == null ? 0 : this.getCodigoRol().hashCode());
 		result = 37

@@ -30,11 +30,12 @@
 	<bean id="beanValidationEventListener"
 		class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener" />
 	
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-		<property name="jndiName" value="java:comp/env/jdbc/memsoaDS" /> 
-		<property name="resourceRef" value="true" /> 
+<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${datasource.jndi}" />
+		<property name="lookupOnStartup" value="false" />
+		<property name="cache" value="true" />
+		<property name="proxyInterface" value="javax.sql.DataSource" />
 	</bean>
-
 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<f:view>
+	<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</h:head>
+	<h:body>
+	<div class="centrado">
+	<table border="0" align="center" cellspacing="0" cellpadding="0" style="width:900px" >
+		<tr>
+			<td  align="center">
+			<div id="header"><ui:insert name="header">
+				<ui:include src="header.xhtml" />
+			</ui:insert></div>
+			</td>
+		</tr>
+		<tr>
+			<td >
+			<div id="content" >
+			<ui:insert name="content">
+			</ui:insert></div>
+			</td>
+		</tr>
+		<tr>
+			<td >
+			<div id="footer"><ui:insert name="footer">
+				<ui:include src="footer.xhtml" />
+			</ui:insert></div>
+			</td>
+		</tr>
+	</table>
+	</div>
+	</h:body>
+</f:view>
+</html>

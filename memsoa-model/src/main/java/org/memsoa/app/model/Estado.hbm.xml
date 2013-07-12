@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Estado" table="ESTADO" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Estado" table="ESTADO" schema="MEMSOA">
         <id name="codigoEstado" type="string">
             <column name="CODIGO_ESTADO" length="10" />
             <generator class="assigned" />

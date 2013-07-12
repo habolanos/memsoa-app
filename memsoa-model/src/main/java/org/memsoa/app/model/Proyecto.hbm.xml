@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Proyecto" table="PROYECTO" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Proyecto" table="PROYECTO" schema="MEMSOA">
         <id name="codigoProyecto" type="long">
             <column name="CODIGO_PROYECTO" precision="10" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="persona" class="org.mamsoa.app.model.Persona" fetch="select">
+        <many-to-one name="persona" class="org.memsoa.app.model.Persona" fetch="select">
             <column name="PROPIETARIO" length="20" not-null="true" />
         </many-to-one>
         <property name="fechaRegistro" type="date">
@@ -39,13 +39,13 @@
             <key>
                 <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.Implementacion" />
+            <one-to-many class="org.memsoa.app.model.Implementacion" />
         </set>
         <set name="proyectoPersonas" table="PROYECTO_PERSONA" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.ProyectoPersona" />
+            <one-to-many class="org.memsoa.app.model.ProyectoPersona" />
         </set>
     </class>
 </hibernate-mapping>

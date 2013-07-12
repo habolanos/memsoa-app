@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="org.mamsoa.app.model.Categoria" table="CATEGORIA" schema="MEMSOA">
+    <class name="org.memsoa.app.model.Categoria" table="CATEGORIA" schema="MEMSOA">
         <id name="codigoCategoria" type="string">
             <column name="CODIGO_CATEGORIA" length="10" />
             <generator class="assigned" />
@@ -15,13 +15,13 @@
             <key>
                 <column name="CODIGO_CATEGORIA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.Patron" />
+            <one-to-many class="org.memsoa.app.model.Patron" />
         </set>
         <set name="implementacionCategorias" table="IMPLEMENTACION_CATEGORIA" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="CODIGO_CATEGORIA" length="10" not-null="true" />
             </key>
-            <one-to-many class="org.mamsoa.app.model.ImplementacionCategoria" />
+            <one-to-many class="org.memsoa.app.model.ImplementacionCategoria" />
         </set>
     </class>
 </hibernate-mapping>
