@@ -16,11 +16,9 @@ import javax.faces.model.SelectItem;
 import org.memsoa.app.api.enums.EstadoProyectoEnum;
 import org.memsoa.app.facade.ProyectoFacade;
 import org.memsoa.app.facade.ProyectoPersonaFacade;
-import org.memsoa.app.model.Persona;
 import org.memsoa.app.model.Proyecto;
 import org.memsoa.app.model.ProyectoPersona;
 import org.memsoa.app.model.ProyectoPersonaId;
-import org.memsoa.app.model.Rol;
 import org.memsoa.app.ui.support.AbstractUI;
 
 /**
