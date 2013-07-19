@@ -32,6 +32,10 @@ public class Persona implements java.io.Serializable {
 
 	public Persona() {
 	}
+	
+	public Persona(String codigoPersona) {
+		this.codigoPersona = codigoPersona;
+	}
 
 	public Persona(String codigoPersona, String nombre, String emailPersona,
 			Date fechaRegistro, Date fechaModificacion, String clave) {

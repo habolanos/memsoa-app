@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.memsoa.app.api.util.Paginator;
 import org.memsoa.app.dao.base.AbstractDao;
-import org.memsoa.app.model.Proyecto;
 import org.memsoa.app.model.ProyectoPersona;
 import org.memsoa.app.model.ProyectoPersonaId;
 

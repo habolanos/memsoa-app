@@ -10,6 +10,7 @@ public class ProyectoPersonaId implements java.io.Serializable {
 	private Long codigoProyecto;
 	private String codigoRol;
 	private String codigoPersona;
+	
 
 	public ProyectoPersonaId() {
 	}
@@ -79,4 +80,5 @@ public class ProyectoPersonaId implements java.io.Serializable {
 		return result;
 	}
 
+	
 }

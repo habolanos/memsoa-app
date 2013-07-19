@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-    version="2.0">
-    <application>
-    	<locale-config>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>goProject</from-outcome>
+			<to-view-id>/pages/forms/projects/project.jspx</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>goInbox</from-outcome>
+			<to-view-id>/pages/forms/inbox.jspx</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<application>
+		<locale-config>
 			<default-locale>es</default-locale>
 			<supported-locale>en</supported-locale>
 		</locale-config>
 		<message-bundle>i18n.messages</message-bundle>
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-		
-    </application>
-
+	</application>
 </faces-config>

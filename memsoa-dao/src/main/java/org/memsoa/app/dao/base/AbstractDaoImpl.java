@@ -5,7 +5,6 @@ package org.memsoa.app.dao.base;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

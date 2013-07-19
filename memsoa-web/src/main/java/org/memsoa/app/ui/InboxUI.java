@@ -39,7 +39,17 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 	private EstadoProyectoEnum estado=EstadoProyectoEnum.DEFAULT;
 	private List<SelectItem> listRoles;
 	private List<SelectItem> listEstado;
-	
+
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 16/07/2013
+	 * @return String
+	 */
+	public String actionGoCreateProject(){
+		return "goProject";
+	}
+
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
 	 *@date 11/07/2013
@@ -212,7 +222,9 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 				listEstado=new ArrayList<SelectItem>();
 				listEstado.add(new SelectItem(EstadoProyectoEnum.DEFAULT,getMessage("i18n.messages", "DEFAULT_SELECT_TIEM")));
 				for (EstadoProyectoEnum estadoProyectoEnum : EstadoProyectoEnum.values()) {
-					listEstado.add(new SelectItem(estadoProyectoEnum, estadoProyectoEnum.name()));
+					if(!estadoProyectoEnum.equals(EstadoProyectoEnum.DEFAULT)){
+						listEstado.add(new SelectItem(estadoProyectoEnum, estadoProyectoEnum.name()));
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -230,6 +242,6 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 		this.listEstado = listEstado;
 	}
 
-	
-	
+
+
 }

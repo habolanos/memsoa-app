@@ -6,6 +6,7 @@ package org.memsoa.app.ui.support;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +39,26 @@ public abstract class AbstractUI<T> extends AbstractDataPaginatorUI<T>{
 		} catch (Exception e) {
 			return MESSAGE_NOT_FOUND_PREFIX + key + MESSAGE_NOT_FOUND_PREFIX;
 		}
+	}
+	
+	public void info(String mensaje){
+		FacesContext context = FacesContext.getCurrentInstance();  
+        context.addMessage(null, new FacesMessage("Successful", mensaje)); 
+	}
+	
+	public void info(String archivo,String key){
+		FacesContext context = FacesContext.getCurrentInstance();  
+        context.addMessage(null, new FacesMessage("Successful", getMessage(archivo, key))); 
+	}
+	
+	public void error(String mensaje){
+		FacesContext context = FacesContext.getCurrentInstance();  
+        context.addMessage(null, new FacesMessage("error", mensaje)); 
+	}
+	
+	public void error(String archivo,String key){
+		FacesContext context = FacesContext.getCurrentInstance();  
+        context.addMessage(null, new FacesMessage("error", getMessage(archivo, key))); 
 	}
 	
 	/**
