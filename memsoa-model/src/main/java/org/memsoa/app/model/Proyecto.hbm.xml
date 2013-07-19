@@ -6,7 +6,9 @@
     <class name="org.memsoa.app.model.Proyecto" table="PROYECTO" schema="MEMSOA">
         <id name="codigoProyecto" type="long">
             <column name="CODIGO_PROYECTO" precision="10" scale="0" />
-            <generator class="org.memsoa.app.model.trigger.TriggerAssignedIdentityGenerator" />
+            <generator class="sequence" >
+            	<param name="sequence">SEQ_PROYECTO</param>
+            </generator>
         </id>
         <many-to-one name="persona" class="org.memsoa.app.model.Persona" fetch="select">
             <column name="PROPIETARIO" length="20" not-null="true" />
