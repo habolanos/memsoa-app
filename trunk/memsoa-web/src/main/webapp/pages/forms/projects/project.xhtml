@@ -12,10 +12,36 @@
 	</ui:define>
 	<ui:define name="content">
 		<f:loadBundle basename="i18n.messages" var="msg" />
+		<f:loadBundle basename="i18n.msg-proyecto" var="msgPro" />
 		<h:form id="formProject">
-			<p:panel header="#{msg.lblCabecera}">
+			<p:growl id="growl" showDetail="true" sticky="true" />  
+			<p:panel header="#{msgPro.lblproyecto}" id="pnlProject">
+					<h:panelGrid columns="4">
+						<p:outputLabel value="#{msgPro.lblNombre}" />
+						<p:inputText value="#{projectUI.proyecto.nombre}" />
+						<p:outputLabel value="#{msgPro.lblOrganizacion}" />
+						<p:inputText value="#{projectUI.proyecto.organizacion}" />
+
+						<p:outputLabel value="#{msgPro.lblPais}" />
+						<p:inputText value="#{projectUI.proyecto.pais}" />
+						<p:outputLabel value="#{msgPro.lblEstado}" />
+						<p:selectOneMenu id="project_estado" 
+							value="#{projectUI.estado}">
+							<f:selectItems value="#{projectUI.listEstado}" />
+						</p:selectOneMenu>
+					</h:panelGrid>
+					<h:panelGrid width="100%">
+						<p:outputLabel value="#{msgPro.lblObservacion}" />
+						<p:inputTextarea value="#{projectUI.proyecto.observacion}"
+							cols="100" maxlength="200" rows="3" />
+					</h:panelGrid>
 			</p:panel>
 			<p:fieldset>
+				<p:commandButton value="#{msgPro.btnGuardar}" action="#{projectUI.actionGuardar}" 
+					process="@form" update="@form"/>
+				<p:commandButton value="#{msgPro.btnLimpiar}" action="#{projectUI.actionLimpiar}" 
+					process="pnlProject" update="pnlProject"/>
+				<p:commandButton value="#{msgPro.btnRegresar}" action="#{projectUI.actionRegresar}"/>
 			</p:fieldset>
 		</h:form>
 	</ui:define>

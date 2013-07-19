@@ -13,8 +13,8 @@
 	<ui:define name="content">
 		<f:loadBundle basename="i18n.msg-inbox" var="msgInbox" />
 		<h:form id="formCabecera">
-			<p:panel header="#{msgInbox.lblCabecera}">
-				<h:panelGrid columns="12">
+			<p:panel header="#{msgInbox.lblFiltros}">
+				<h:panelGrid columns="7">
 					<p:outputLabel value="#{msgInbox.lblNombre}" />
 					<p:inputText value="#{inboxUI.nombreProyecto}"/>
 					<p:outputLabel value="#{msgInbox.lblRol}" />
@@ -25,7 +25,8 @@
 					<p:selectOneMenu value="#{inboxUI.estado}">
 						<f:selectItems value="#{inboxUI.listEstado}"/>
 					</p:selectOneMenu>
-					
+					<p:commandButton value="#{msgInbox.btnCrearProyecto}" action="#{inboxUI.actionGoCreateProject}">
+					</p:commandButton>
 				</h:panelGrid>
 			</p:panel>
 				<p:dataTable value="#{inboxUI.data}" paginator="true" var="row"
@@ -35,19 +36,19 @@
 						<f:facet name="header">
 							<h:outputText value="#{msgInbox.lblNombre}" />
 						</f:facet>
-						<h:outputText value="#{row.proyecto.nombre}" />
+						<h:outputText value="#{row.nombreProyecto}" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{msgInbox.lblRol}" />
 						</f:facet>
-						<h:outputText value="#{row.rol.nombre}" />
+						<h:outputText value="#{row.nombreRol}" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{msgInbox.lblEstado}" />
 						</f:facet>
-						<h:outputText value="#{row.proyecto.estado}" />
+						<h:outputText value="#{row.estadoProyecto}" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">

@@ -12,7 +12,6 @@ import org.memsoa.app.model.ProyectoPersona;
 import org.memsoa.app.model.ProyectoPersonaId;
 import org.memsoa.app.service.ProyectoPersonaService;
 import org.memsoa.app.service.base.AbstractService;
-import org.memsoa.app.service.base.AbstractServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

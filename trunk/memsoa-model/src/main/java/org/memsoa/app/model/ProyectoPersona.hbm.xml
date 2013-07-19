@@ -15,14 +15,26 @@
                 <column name="CODIGO_PERSONA" length="20" />
             </key-property>
         </composite-id>
-        <many-to-one name="persona" class="org.memsoa.app.model.Persona" update="false" insert="false" fetch="select">
-            <column name="CODIGO_PERSONA" length="20" not-null="true" />
-        </many-to-one>
-        <many-to-one name="proyecto" class="org.memsoa.app.model.Proyecto" update="false" insert="false" fetch="select">
-            <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
-        </many-to-one>
-        <many-to-one name="rol" class="org.memsoa.app.model.Rol" update="false" insert="false" fetch="select">
-            <column name="CODIGO_ROL" length="10" not-null="true" />
-        </many-to-one>
+        <property name="nombreProyecto" type="java.lang.String" 
+			formula="(SELECT PRO.NOMBRE FROM PROYECTO PRO WHERE PRO.CODIGO_PROYECTO=CODIGO_PROYECTO)"/>
+			
+		<property name="estadoProyecto" type="java.lang.String" 
+			formula="(SELECT PRO.ESTADO FROM PROYECTO PRO WHERE PRO.CODIGO_PROYECTO=CODIGO_PROYECTO)"/>	 
+        
+        <property name="nombreRol" type="java.lang.String" 
+			formula="(SELECT ROL.NOMBRE FROM ROL ROL WHERE ROL.CODIGO_ROL=CODIGO_ROL)"/>
+			
+		<property name="nombrePersona" type="java.lang.String" 
+			formula="(SELECT PERSONA.NOMBRE_COMPLETO FROM PERSONA PERSONA WHERE PERSONA.CODIGO_PERSONA=CODIGO_PERSONA)"/>	
+        
+<!--         <many-to-one name="persona" class="org.memsoa.app.model.Persona" update="false" insert="false" fetch="select"> -->
+<!--             <column name="CODIGO_PERSONA" length="20" not-null="true" /> -->
+<!--         </many-to-one> -->
+<!--         <many-to-one name="proyecto" class="org.memsoa.app.model.Proyecto" update="false" insert="false" fetch="select"> -->
+<!--             <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" /> -->
+<!--         </many-to-one> -->
+<!--         <many-to-one name="rol" class="org.memsoa.app.model.Rol" update="false" insert="false" fetch="select"> -->
+<!--             <column name="CODIGO_ROL" length="10" not-null="true" /> -->
+<!--         </many-to-one> -->
     </class>
 </hibernate-mapping>

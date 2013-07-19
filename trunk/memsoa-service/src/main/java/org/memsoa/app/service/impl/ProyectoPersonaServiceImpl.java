@@ -6,7 +6,10 @@ package org.memsoa.app.service.impl;
 import java.util.List;
 
 import org.memsoa.app.api.util.Paginator;
+import org.memsoa.app.dao.PersonaDao;
+import org.memsoa.app.dao.ProyectoDao;
 import org.memsoa.app.dao.ProyectoPersonaDao;
+import org.memsoa.app.dao.RolDao;
 import org.memsoa.app.dao.base.AbstractDao;
 import org.memsoa.app.model.ProyectoPersona;
 import org.memsoa.app.model.ProyectoPersonaId;
@@ -27,6 +30,12 @@ public class ProyectoPersonaServiceImpl extends AbstractServiceImpl<ProyectoPers
 
 	@Autowired
 	private ProyectoPersonaDao proyectoPersonaDao;
+	@Autowired
+	private ProyectoDao proyectoDao;
+	@Autowired
+	private PersonaDao personaDao;
+	@Autowired
+	private RolDao rolDao;
 	
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
@@ -62,5 +71,14 @@ public class ProyectoPersonaServiceImpl extends AbstractServiceImpl<ProyectoPers
 		return proyectoPersonaDao.countByNameRolEstado(nombre, codigoRol, estado);
 	}
 
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 16/07/2013
+	 * @see org.memsoa.app.service.base.AbstractServiceImpl#saveOrUpdate(java.lang.Object)
+	 */
+	@Override
+	public void saveOrUpdate(ProyectoPersona entity) throws Exception {
+		super.saveOrUpdate(entity);
+	}
 	
 }

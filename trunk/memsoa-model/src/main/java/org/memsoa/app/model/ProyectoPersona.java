@@ -8,21 +8,23 @@ package org.memsoa.app.model;
 public class ProyectoPersona implements java.io.Serializable {
 
 	private ProyectoPersonaId id;
-	private Persona persona;
-	private Proyecto proyecto;
-	private Rol rol;
-
+	private String nombrePersona;
+	private String nombreRol;
+	private String nombreProyecto;
+	private String estadoProyecto;
 	public ProyectoPersona() {
 	}
 
+	public ProyectoPersona(ProyectoPersonaId id) {
+		this.id=id;
+	}
+	
 	public ProyectoPersona(ProyectoPersonaId id, Persona persona,
 			Proyecto proyecto, Rol rol) {
 		this.id = id;
-		this.persona = persona;
-		this.proyecto = proyecto;
-		this.rol = rol;
 	}
 
+	
 	public ProyectoPersonaId getId() {
 		return this.id;
 	}
@@ -31,28 +33,77 @@ public class ProyectoPersona implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Persona getPersona() {
-		return this.persona;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @return the nombrePersona
+	 */
+	public String getNombrePersona() {
+		return nombrePersona;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @param nombrePersona the nombrePersona to set
+	 */
+	public void setNombrePersona(String nombrePersona) {
+		this.nombrePersona = nombrePersona;
 	}
 
-	public Proyecto getProyecto() {
-		return this.proyecto;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @return the nombreRol
+	 */
+	public String getNombreRol() {
+		return nombreRol;
 	}
 
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @param nombreRol the nombreRol to set
+	 */
+	public void setNombreRol(String nombreRol) {
+		this.nombreRol = nombreRol;
 	}
 
-	public Rol getRol() {
-		return this.rol;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @return the nombreProyecto
+	 */
+	public String getNombreProyecto() {
+		return nombreProyecto;
 	}
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @param nombreProyecto the nombreProyecto to set
+	 */
+	public void setNombreProyecto(String nombreProyecto) {
+		this.nombreProyecto = nombreProyecto;
 	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @return the estadoProyecto
+	 */
+	public String getEstadoProyecto() {
+		return estadoProyecto;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 18/07/2013
+	 * @param estadoProyecto the estadoProyecto to set
+	 */
+	public void setEstadoProyecto(String estadoProyecto) {
+		this.estadoProyecto = estadoProyecto;
+	}
+
 
 }
