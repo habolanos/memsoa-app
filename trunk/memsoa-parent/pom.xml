@@ -14,7 +14,7 @@
 		<org.hibernate.version>3.5.6-Final</org.hibernate.version>
 		<org.primefaces>3.5</org.primefaces>
 		<org.slf4j.version>1.6.0</org.slf4j.version>
-		<com.oracle>11.1.0</com.oracle>
+		<com.oracle>10.2.0.5.0</com.oracle>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
