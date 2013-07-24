@@ -49,7 +49,16 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 	public String actionGoCreateProject(){
 		return "goProject";
 	}
-
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @return String
+	 */
+	public String actionGoImplementation(){
+		return "goImplementation";
+	}
+	
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
 	 *@date 11/07/2013

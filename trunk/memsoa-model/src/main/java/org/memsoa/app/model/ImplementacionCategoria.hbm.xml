@@ -4,7 +4,7 @@
 <!-- Generated 8/07/2013 08:12:03 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="org.memsoa.app.model.ImplementacionCategoria" table="IMPLEMENTACION_CATEGORIA" schema="MEMSOA">
-        <composite-id name="id" class="org.memsoa.app.model.ImplementacionCategoriaId">
+        <composite-id >
             <key-property name="codigoCategoria" type="string">
                 <column name="CODIGO_CATEGORIA" length="10" />
             </key-property>
@@ -12,12 +12,6 @@
                 <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" />
             </key-property>
         </composite-id>
-        <many-to-one name="categoria" class="org.memsoa.app.model.Categoria" update="false" insert="false" fetch="select">
-            <column name="CODIGO_CATEGORIA" length="10" not-null="true" />
-        </many-to-one>
-        <many-to-one name="implementacion" class="org.memsoa.app.model.Implementacion" update="false" insert="false" fetch="select">
-            <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" not-null="true" />
-        </many-to-one>
         <property name="fechaRegistro" type="date">
             <column name="FECHA_REGISTRO" length="7" />
         </property>
