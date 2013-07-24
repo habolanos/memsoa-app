@@ -60,6 +60,10 @@
 						<p:commandLink process="@this">
 							<p:graphicImage url="../../images/delete.png" />
 						</p:commandLink>
+						<p:commandLink process="@form" update="@form" action="#{inboxUI.actionGoImplementation}" ajax="false">
+							<p:graphicImage url="../../images/process.png" />
+							<f:param name="idProject" value="#{row.id.codigoProyecto}" />
+						</p:commandLink>
 					</p:column>
 				</p:dataTable>
 		</h:form>

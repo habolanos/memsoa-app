@@ -12,6 +12,10 @@
 			<from-outcome>goInbox</from-outcome>
 			<to-view-id>/pages/forms/inbox.jspx</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>goImplementation</from-outcome>
+			<to-view-id>/pages/forms/implementation/implementation.jspx</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application>
 		<locale-config>

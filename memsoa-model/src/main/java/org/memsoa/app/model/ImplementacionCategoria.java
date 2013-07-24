@@ -9,52 +9,26 @@ import java.util.Date;
  */
 public class ImplementacionCategoria implements java.io.Serializable {
 
-	private ImplementacionCategoriaId id;
-	private Categoria categoria;
-	private Implementacion implementacion;
 	private Date fechaRegistro;
+	private String codigoCategoria;
+	private Long codigoImplementacion;
 
 	public ImplementacionCategoria() {
 	}
 
-	public ImplementacionCategoria(ImplementacionCategoriaId id,
-			Categoria categoria, Implementacion implementacion) {
-		this.id = id;
-		this.categoria = categoria;
-		this.implementacion = implementacion;
-	}
-
-	public ImplementacionCategoria(ImplementacionCategoriaId id,
-			Categoria categoria, Implementacion implementacion,
-			Date fechaRegistro) {
-		this.id = id;
-		this.categoria = categoria;
-		this.implementacion = implementacion;
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @param fechaRegistro
+	 * @param codigoCategoria
+	 * @param codigoImplementacion
+	 */
+	public ImplementacionCategoria(Date fechaRegistro, String codigoCategoria,
+			Long codigoImplementacion) {
+		super();
 		this.fechaRegistro = fechaRegistro;
-	}
-
-	public ImplementacionCategoriaId getId() {
-		return this.id;
-	}
-
-	public void setId(ImplementacionCategoriaId id) {
-		this.id = id;
-	}
-
-	public Categoria getCategoria() {
-		return this.categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public Implementacion getImplementacion() {
-		return this.implementacion;
-	}
-
-	public void setImplementacion(Implementacion implementacion) {
-		this.implementacion = implementacion;
+		this.codigoCategoria = codigoCategoria;
+		this.codigoImplementacion = codigoImplementacion;
 	}
 
 	public Date getFechaRegistro() {
@@ -63,6 +37,42 @@ public class ImplementacionCategoria implements java.io.Serializable {
 
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @return the codigoCategoria
+	 */
+	public String getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @param codigoCategoria the codigoCategoria to set
+	 */
+	public void setCodigoCategoria(String codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @return the codigoImplementacion
+	 */
+	public Long getCodigoImplementacion() {
+		return codigoImplementacion;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 23/07/2013
+	 * @param codigoImplementacion the codigoImplementacion to set
+	 */
+	public void setCodigoImplementacion(Long codigoImplementacion) {
+		this.codigoImplementacion = codigoImplementacion;
 	}
 
 }

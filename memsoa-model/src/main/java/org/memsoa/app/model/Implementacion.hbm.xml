@@ -6,7 +6,9 @@
     <class name="org.memsoa.app.model.Implementacion" table="IMPLEMENTACION" schema="MEMSOA">
         <id name="codigoImplementacion" type="long">
             <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" />
-            <generator class="assigned" />
+            <generator class="sequence" >
+            	<param name="sequence">SEQ_IMPLEMENTACION</param>
+            </generator>
         </id>
         <many-to-one name="proyecto" class="org.memsoa.app.model.Proyecto" fetch="select">
             <column name="CODIGO_PROYECTO" precision="10" scale="0" not-null="true" />
