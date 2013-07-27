@@ -7,6 +7,9 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>memsoa-dao</artifactId>
+	<packaging>jar</packaging>
+	<name>Implementacion de acceso a la base de datos</name>
+  <description>Implementacion encargada de realizar la interaccion con la base de datos</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.memsoa</groupId>
