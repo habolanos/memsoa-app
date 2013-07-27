@@ -7,14 +7,14 @@
   </parent>
   <artifactId>memsoa-reactor</artifactId>
   <packaging>pom</packaging>
-  <name>Reactor de la solucion para el metodo MEMSOA</name>
-  <description>Reactor de la solucion para el metodo MEMSOA</description>
+  <name>Reactor de contruccion de la solucion</name>
+  <description>Componente reactor de la solucion para el metodo MEMSOA</description>
   <modules>
   	<module>../memsoa-parent</module>
   	<module>../memsoa-config</module>
   	<module>../memsoa-model</module>
-  	<module>../memsoa-dao</module>
   	<module>../memsoa-api</module>
+  	<module>../memsoa-dao</module>
   	<module>../memsoa-service</module>
   </modules>
 </project>

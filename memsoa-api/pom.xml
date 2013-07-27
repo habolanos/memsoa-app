@@ -7,6 +7,9 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>memsoa-api</artifactId>
+	<packaging>jar</packaging>
+	<name>Implementacion logica de la aplicacion</name>
+  	<description>Componente implementacion logica de la aplicacion</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.memsoa</groupId>
