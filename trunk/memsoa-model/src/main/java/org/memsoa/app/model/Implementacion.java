@@ -2,8 +2,10 @@ package org.memsoa.app.model;
 
 // Generated 8/07/2013 08:12:02 PM by Hibernate Tools 3.4.0.CR1
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Set;
  */
 public class Implementacion implements java.io.Serializable {
 
-	private long codigoImplementacion;
+	private Long codigoImplementacion;
 	private Proyecto proyecto;
 	private Date fechaRegistro;
 	private Date fechaModificacion;
@@ -19,12 +21,13 @@ public class Implementacion implements java.io.Serializable {
 	private String nombre;
 	private String observacion;
 	private Set evaluacions = new HashSet(0);
-	private Set implementacionCategorias = new HashSet(0);
+	private Set<ImplementacionCategoria> implementacionCategorias = new HashSet<ImplementacionCategoria>(0);
+	private List<ImplementacionCategoria> listImplementacionCategorias=new ArrayList<ImplementacionCategoria>();
 
 	public Implementacion() {
 	}
 
-	public Implementacion(long codigoImplementacion, Proyecto proyecto,
+	public Implementacion(Long codigoImplementacion, Proyecto proyecto,
 			Date fechaRegistro, Date fechaModificacion, String estado,
 			String nombre) {
 		this.codigoImplementacion = codigoImplementacion;
@@ -35,7 +38,7 @@ public class Implementacion implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Implementacion(long codigoImplementacion, Proyecto proyecto,
+	public Implementacion(Long codigoImplementacion, Proyecto proyecto,
 			Date fechaRegistro, Date fechaModificacion, String estado,
 			String nombre, String observacion, Set evaluacions,
 			Set implementacionCategorias) {
@@ -50,11 +53,11 @@ public class Implementacion implements java.io.Serializable {
 		this.implementacionCategorias = implementacionCategorias;
 	}
 
-	public long getCodigoImplementacion() {
+	public Long getCodigoImplementacion() {
 		return this.codigoImplementacion;
 	}
 
-	public void setCodigoImplementacion(long codigoImplementacion) {
+	public void setCodigoImplementacion(Long codigoImplementacion) {
 		this.codigoImplementacion = codigoImplementacion;
 	}
 
@@ -114,12 +117,34 @@ public class Implementacion implements java.io.Serializable {
 		this.evaluacions = evaluacions;
 	}
 
-	public Set getImplementacionCategorias() {
+	public Set<ImplementacionCategoria> getImplementacionCategorias() {
 		return this.implementacionCategorias;
 	}
 
-	public void setImplementacionCategorias(Set implementacionCategorias) {
+	public void setImplementacionCategorias(Set<ImplementacionCategoria> implementacionCategorias) {
 		this.implementacionCategorias = implementacionCategorias;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 30/07/2013
+	 * @return the listImplementacionCategorias
+	 */
+	public List<ImplementacionCategoria> getListImplementacionCategorias() {
+		if(implementacionCategorias.size()>0){
+			listImplementacionCategorias=new ArrayList<ImplementacionCategoria>(implementacionCategorias);
+		}
+		return listImplementacionCategorias;
+	}
+
+	/**
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 30/07/2013
+	 * @param listImplementacionCategorias the listImplementacionCategorias to set
+	 */
+	public void setListImplementacionCategorias(
+			List<ImplementacionCategoria> listImplementacionCategorias) {
+		this.listImplementacionCategorias = listImplementacionCategorias;
 	}
 
 }

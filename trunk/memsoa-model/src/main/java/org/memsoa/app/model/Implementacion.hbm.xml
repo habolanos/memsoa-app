@@ -34,7 +34,7 @@
             </key>
             <one-to-many class="org.memsoa.app.model.Evaluacion" />
         </set>
-        <set name="implementacionCategorias" table="IMPLEMENTACION_CATEGORIA" inverse="true" lazy="true" fetch="select">
+        <set name="implementacionCategorias" table="IMPLEMENTACION_CATEGORIA" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="CODIGO_IMPLEMENTACION" precision="10" scale="0" not-null="true" />
             </key>

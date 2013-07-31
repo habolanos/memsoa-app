@@ -58,6 +58,15 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 	public String actionGoImplementation(){
 		return "goImplementation";
 	}
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 30/07/2013
+	 * @return
+	 */
+	public String actionGoEvaluation(){
+		return "goEvaluation";
+	}
 	
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
@@ -166,7 +175,7 @@ public class InboxUI extends AbstractUI<ProyectoPersona>{
 				listRoles= new ArrayList<SelectItem>();
 				listRoles.add(new SelectItem("0",getMessage("i18n.messages", "DEFAULT_SELECT_TIEM")));
 				for (Rol rol : list) {
-					listRoles.add(new SelectItem(rol.getNombre(), rol.getCodigoRol()));
+					listRoles.add(new SelectItem(rol.getCodigoRol(),rol.getNombre()));
 				}
 			}
 		} catch (Exception e) {

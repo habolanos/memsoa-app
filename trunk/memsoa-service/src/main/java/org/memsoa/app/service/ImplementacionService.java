@@ -5,6 +5,7 @@ package org.memsoa.app.service;
 
 import java.util.List;
 
+import org.memsoa.app.api.util.Paginator;
 import org.memsoa.app.model.Categoria;
 import org.memsoa.app.model.Implementacion;
 import org.memsoa.app.service.base.AbstractService;
@@ -22,11 +23,19 @@ public interface ImplementacionService extends AbstractService<Implementacion, L
 	 * consulta todas las entidades
 	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
 	 * @date 23/07/2013
+	 * @param paginator
 	 * @return List<{@link Categoria}>
 	 * @throws Exception
 	 */
-	List<Implementacion> findAll()throws Exception;
-	
+	List<Implementacion> findAll(Paginator paginator)throws Exception;
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 30/07/2013
+	 * @return Integer
+	 * @throws Exception
+	 */
+	Integer countAll()throws Exception;
 	/**
 	 * guarda una implementacion y categorias
 	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>

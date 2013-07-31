@@ -61,7 +61,11 @@
 							<p:graphicImage url="../../images/delete.png" />
 						</p:commandLink>
 						<p:commandLink process="@form" update="@form" action="#{inboxUI.actionGoImplementation}" ajax="false">
-							<p:graphicImage url="../../images/process.png" />
+							<p:graphicImage url="../../images/process.png" title="#{msgInbox.lblImplementacion}"/>
+							<f:param name="idProject" value="#{row.id.codigoProyecto}" />
+						</p:commandLink>
+						<p:commandLink process="@form" update="@form" action="#{inboxUI.actionGoEvaluation}" ajax="false">
+							<p:graphicImage url="../../images/evaluation.png" title="#{msgInbox.lblEvaluacion}"/>
 							<f:param name="idProject" value="#{row.id.codigoProyecto}" />
 						</p:commandLink>
 					</p:column>

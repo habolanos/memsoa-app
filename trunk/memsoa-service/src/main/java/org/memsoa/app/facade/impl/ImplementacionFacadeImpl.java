@@ -5,6 +5,7 @@ package org.memsoa.app.facade.impl;
 
 import java.util.List;
 
+import org.memsoa.app.api.util.Paginator;
 import org.memsoa.app.facade.ImplementacionFacade;
 import org.memsoa.app.facade.base.AbstractFacadeImpl;
 import org.memsoa.app.model.Implementacion;
@@ -27,13 +28,14 @@ public class ImplementacionFacadeImpl extends AbstractFacadeImpl<Implementacion,
 	private ImplementacionService implementacionService;
 	
 	/**
+	 * 
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 *@date 23/07/2013
-	 * @see org.memsoa.app.facade.ImplementacionFacade#findAll()
+	 *@date 30/07/2013
+	 * @see org.memsoa.app.facade.ImplementacionFacade#findAll(org.memsoa.app.api.util.Paginator)
 	 */
 	@Override
-	public List<Implementacion> findAll() throws Exception {
-		return implementacionService.findAll();
+	public List<Implementacion> findAll(Paginator paginator) throws Exception {
+		return implementacionService.findAll( paginator);
 	}
 
 	/**
@@ -55,6 +57,16 @@ public class ImplementacionFacadeImpl extends AbstractFacadeImpl<Implementacion,
 	public void save(Implementacion implementacion, List<String> listCategorias)
 			throws Exception {
 		implementacionService.save(implementacion, listCategorias);
+	}
+
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 30/07/2013
+	 * @see org.memsoa.app.facade.ImplementacionFacade#countAll()
+	 */
+	@Override
+	public Integer countAll() throws Exception {
+		return implementacionService.countAll();
 	}
 
 }

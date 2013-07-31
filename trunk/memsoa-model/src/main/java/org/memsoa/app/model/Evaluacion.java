@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Evaluacion implements java.io.Serializable {
 
-	private long codigoEvaluacion;
+	private Long codigoEvaluacion;
 	private Persona persona;
 	private Implementacion implementacion;
 	private String apreciacion;
@@ -22,7 +22,7 @@ public class Evaluacion implements java.io.Serializable {
 	public Evaluacion() {
 	}
 
-	public Evaluacion(long codigoEvaluacion, Persona persona,
+	public Evaluacion(Long codigoEvaluacion, Persona persona,
 			Implementacion implementacion, String estado,
 			Date fechaActualizacion) {
 		this.codigoEvaluacion = codigoEvaluacion;
@@ -32,7 +32,7 @@ public class Evaluacion implements java.io.Serializable {
 		this.fechaActualizacion = fechaActualizacion;
 	}
 
-	public Evaluacion(long codigoEvaluacion, Persona persona,
+	public Evaluacion(Long codigoEvaluacion, Persona persona,
 			Implementacion implementacion, String apreciacion, String estado,
 			Date fechaActualizacion, Set evaluacionPatrons) {
 		this.codigoEvaluacion = codigoEvaluacion;
@@ -44,11 +44,11 @@ public class Evaluacion implements java.io.Serializable {
 		this.evaluacionPatrons = evaluacionPatrons;
 	}
 
-	public long getCodigoEvaluacion() {
+	public Long getCodigoEvaluacion() {
 		return this.codigoEvaluacion;
 	}
 
-	public void setCodigoEvaluacion(long codigoEvaluacion) {
+	public void setCodigoEvaluacion(Long codigoEvaluacion) {
 		this.codigoEvaluacion = codigoEvaluacion;
 	}
 
