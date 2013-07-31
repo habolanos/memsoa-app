@@ -6,6 +6,7 @@ package org.memsoa.app.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.memsoa.app.api.util.Paginator;
 import org.memsoa.app.dao.ImplementacionCategoriaDao;
 import org.memsoa.app.dao.ImplementacionDao;
 import org.memsoa.app.dao.base.AbstractDao;
@@ -32,13 +33,14 @@ public class ImplementacionServiceImpl extends AbstractServiceImpl<Implementacio
 	private ImplementacionCategoriaDao implementacionCategoriaDao;
 	
 	/**
+	 * 
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 *@date 23/07/2013
-	 * @see org.memsoa.app.service.ImplementacionService#findAll()
+	 *@date 30/07/2013
+	 * @see org.memsoa.app.service.ImplementacionService#findAll(org.memsoa.app.api.util.Paginator)
 	 */
 	@Override
-	public List<Implementacion> findAll() throws Exception {
-		return implementacionDao.findAll();
+	public List<Implementacion> findAll(Paginator paginator) throws Exception {
+		return implementacionDao.findAll( paginator);
 	}
 
 	/**
@@ -63,6 +65,16 @@ public class ImplementacionServiceImpl extends AbstractServiceImpl<Implementacio
 		for (String categoria : listCategorias) {
 			implementacionCategoriaDao.save(new ImplementacionCategoria(new Date(),categoria, implementacion.getCodigoImplementacion()));
 		}
+	}
+
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 30/07/2013
+	 * @see org.memsoa.app.service.ImplementacionService#countAll()
+	 */
+	@Override
+	public Integer countAll() throws Exception {
+		return implementacionDao.countAll();
 	}
 
 }

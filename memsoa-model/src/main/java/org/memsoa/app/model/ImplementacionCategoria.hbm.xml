@@ -15,5 +15,7 @@
         <property name="fechaRegistro" type="date">
             <column name="FECHA_REGISTRO" length="7" />
         </property>
+        <property name="nombreCategoria" type="java.lang.String" 
+			formula="(SELECT CAT.NOMBRE FROM CATEGORIA CAT WHERE CAT.CODIGO_CATEGORIA=CODIGO_CATEGORIA)"/>
     </class>
 </hibernate-mapping>

@@ -15,16 +15,11 @@
 		<f:loadBundle basename="i18n.msg-implementation" var="msgImpl" />
 		<h:form id="formImplementacion">
 			<p:growl id="growl" showDetail="true" sticky="true" />  
-			<p:panelGrid columns="2">
-				<p:row>
-					<p:column styleClass="ui-widget-header">
-						<p:outputLabel value="#{msgImpl.lblProyecto}" />
-					</p:column>
-					<p:column>
-						<p:outputLabel value="#{implementationUI.proyecto.nombre}" />
-					</p:column>
-				</p:row>
-			</p:panelGrid>
+			<p:panel header="#{msgImpl.lblProyecto}" id="pnlProyecto">
+				<div align="center">
+				<p:outputLabel value="#{implementationUI.proyecto.nombre}" />
+				</div>
+			</p:panel>
 			<p:panel header="#{msgImpl.lblImplementacion}" id="pnlImplementacion">
 				<h:panelGrid columns="2">
 					<p:outputLabel value="#{msgImpl.lblImplementacion}"/>
@@ -44,13 +39,33 @@
 					</h:panelGrid>
 			</p:panel>
 			<p:fieldset>
-				<div align="center">
+				<div align="center" >
 					<p:commandButton value="#{msgImpl.btnGuardar}" action="#{implementationUI.actionGuardar}" 
 						process="@form" update="@form"/>
 					<p:commandButton value="#{msgImpl.btnLimpiar}" action="#{implementationUI.actionLimpiar}" 
 						process="@form" update="@form"/>
 					<p:commandButton value="#{msgImpl.btnRegresar}" action="#{implementationUI.actionRegresar}"/>
 				</div>
+			</p:fieldset>
+			<p:fieldset>
+				<p:dataTable value="#{implementationUI.data}" paginator="true" var="row"
+					id="dataTableCabecera"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{msgImpl.lblImplementacion}" />
+						</f:facet>
+						<h:outputText value="#{row.nombre}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{msgImpl.lblCategoria}" />
+						</f:facet>
+						<p:dataList value="#{row.listImplementacionCategorias}" var="cat" itemType="disc">
+							 #{cat.nombreCategoria} 
+						</p:dataList> 
+					</p:column>
+				</p:dataTable>	
 			</p:fieldset>
 		</h:form>
 	</ui:define>

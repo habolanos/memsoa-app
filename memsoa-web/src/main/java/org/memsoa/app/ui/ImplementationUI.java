@@ -3,6 +3,7 @@
  */
 package org.memsoa.app.ui;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,13 +17,12 @@ import javax.faces.model.SelectItem;
 
 import org.apache.log4j.Logger;
 import org.memsoa.app.api.enums.EstadoImplementacionEnum;
-import org.memsoa.app.api.enums.EstadoProyectoEnum;
+import org.memsoa.app.api.util.Paginator;
 import org.memsoa.app.facade.CategoriaFacade;
 import org.memsoa.app.facade.ImplementacionFacade;
 import org.memsoa.app.facade.ProyectoFacade;
 import org.memsoa.app.model.Categoria;
 import org.memsoa.app.model.Implementacion;
-import org.memsoa.app.model.ImplementacionCategoria;
 import org.memsoa.app.model.Proyecto;
 import org.memsoa.app.ui.support.AbstractUI;
 
@@ -35,7 +35,7 @@ import org.memsoa.app.ui.support.AbstractUI;
  */
 @ManagedBean
 @ViewScoped
-public class ImplementationUI extends AbstractUI<ImplementacionCategoria>{
+public class ImplementationUI extends AbstractUI<Implementacion> implements Serializable{
 
 	Logger logger=Logger.getLogger(ImplementationUI.class);
 	private Implementacion implementacion;
@@ -230,7 +230,6 @@ public class ImplementationUI extends AbstractUI<ImplementacionCategoria>{
 	 */
 	@Override
 	protected boolean isDefaultAscending(String sortColumn) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	/**
@@ -239,9 +238,13 @@ public class ImplementationUI extends AbstractUI<ImplementacionCategoria>{
 	 * @see org.memsoa.app.ui.support.AbstractDataPaginatorUI#findDataModelEntries(int, int, java.lang.String)
 	 */
 	@Override
-	protected List<ImplementacionCategoria> findDataModelEntries(int startRow,
+	protected List<Implementacion> findDataModelEntries(int startRow,
 			int pageSize, String sort) {
-		// TODO Auto-generated method stub
+		try {
+			return implementacionFacade.findAll(new Paginator(startRow, pageSize));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	/**
@@ -251,7 +254,11 @@ public class ImplementationUI extends AbstractUI<ImplementacionCategoria>{
 	 */
 	@Override
 	protected int countDataModel() {
-		// TODO Auto-generated method stub
+		try {
+			return implementacionFacade.countAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 	/**

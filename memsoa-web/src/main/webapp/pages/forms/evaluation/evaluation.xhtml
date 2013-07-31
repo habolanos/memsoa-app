@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/pages/templates/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{msgEva.lblEvaluacion}" />
+	</ui:define>
+	<ui:define name="content">
+		<f:loadBundle basename="i18n.messages" var="msg" />
+		<f:loadBundle basename="i18n.msg-evaluation" var="msgEva" />
+		<h:form id="formProject">
+			<p:growl id="growl" showDetail="true" sticky="true" />  
+			<p:panel header="#{msgEva.lblproyecto}" id="pnlProject">
+					<p:panelGrid columns="2">
+						<p:row>
+							<p:column styleClass="ui-widget-header">
+								<p:outputLabel value="#{msgEva.lblNombreProyecto}" />
+							</p:column>
+							<p:column>
+								<p:outputLabel value="#{evaluacionUI.proyecto.nombre}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="ui-widget-header">
+								<p:outputLabel value="#{msgEva.lblOrganizacion}" />
+							</p:column>
+							<p:column>
+								<p:outputLabel value="#{evaluacionUI.proyecto.organizacion}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="ui-widget-header">
+								<p:outputLabel value="#{msgEva.lblUrl}" />
+							</p:column>
+							<p:column>
+								<p:outputLabel value="#{evaluacionUI.proyecto.url}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="ui-widget-header">
+								<p:outputLabel value="#{msgEva.lblPais}" />
+							</p:column>
+							<p:column>
+								<p:outputLabel value="#{evaluacionUI.proyecto.pais}" />
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="ui-widget-header">	
+								<p:outputLabel value="#{msgEva.lblObservacion}" />
+							</p:column>
+							<p:column>
+								<p:inputTextarea readonly="true" value="#{evaluacionUI.proyecto.observacion}"
+									cols="100" maxlength="200" rows="3" />
+							</p:column>
+						</p:row>		
+				</p:panelGrid>	
+			</p:panel>
+			<p:panel header="#{msgEva.lblEvaluacion}" id="pnlEvaluacion">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="#{msgEva.lblImplementacion}" />
+					<h:panelGrid>
+						<p:selectOneMenu id="implmentacion" 
+							value="#{evaluacionUI.evaluacion.implementacion.codigoImplementacion}">
+							<f:selectItems value="#{evaluacionUI.listImplementaciones}" />
+						</p:selectOneMenu>
+						<p:message for="implmentacion" />
+					</h:panelGrid>
+					<p:outputLabel value="#{msgEva.lblNombrePersona}" />
+					<h:panelGrid columns="2">
+						<p:autoComplete id="persona" value="#{evaluacionUI.evaluacion.persona}" 
+							completeMethod="#{evaluacionUI.completePersona}" var="p" converter="persona"
+							itemLabel="#{p.nombreCompleto}" itemValue="#{p}" forceSelection="true">  
+			            </p:autoComplete> 
+					</h:panelGrid>
+					
+				</h:panelGrid>
+			</p:panel>		
+			<p:fieldset>
+				<div align="center">
+				<p:commandButton value="#{msgEva.btnGuardar}" action="#{evaluacionUI.actionGuardar}" 
+					process="@form" update="@form"/>
+				<p:commandButton value="#{msgEva.btnLimpiar}" action="#{evaluacionUI.actionLimpiar}" 
+					process="@this pnlEvaluacion" update="pnlEvaluacion"/>
+				<p:commandButton value="#{msgEva.btnRegresar}" action="#{evaluacionUI.actionRegresar}"/>
+				</div>
+			</p:fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

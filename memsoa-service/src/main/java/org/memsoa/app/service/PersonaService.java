@@ -1,21 +1,21 @@
 /**
  * 
  */
-package org.memsoa.app.dao;
+package org.memsoa.app.service;
 
 import java.util.List;
 
-import org.memsoa.app.dao.base.AbstractDao;
 import org.memsoa.app.model.Persona;
+import org.memsoa.app.service.base.AbstractService;
 
 /**
  * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
- * @project memsoa-dao
- * @class PersonaDao
- * @date 16/07/2013
+ * @project memsoa-service
+ * @class PersonaService
+ * @date 30/07/2013
  *
  */
-public interface PersonaDao extends AbstractDao<Persona, String> {
+public interface PersonaService extends AbstractService<Persona, String>{
 
 	/**
 	 * 
