@@ -16,5 +16,6 @@
   	<module>../memsoa-api</module>
   	<module>../memsoa-dao</module>
   	<module>../memsoa-service</module>
+  	<module>../memsoa-web</module>
   </modules>
 </project>
