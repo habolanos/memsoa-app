@@ -83,6 +83,15 @@ public class ProyectoPersonaDaoImpl extends AbstractDaoImpl<ProyectoPersona, Pro
 		return ((Number)criteria.uniqueResult()).intValue();
 	}
 
+	public ProyectoPersona findByid(Long codigoProyecto,String codigoRol,String codigoPersona)throws Exception{
+		DetachedCriteria detachedCriteria=DetachedCriteria.forClass(ProyectoPersona.class);
+		detachedCriteria.add(Restrictions.eq("id.codigoPersona", codigoPersona));
+		detachedCriteria.add(Restrictions.eq("id.codigoRol", codigoRol));
+		detachedCriteria.add(Restrictions.eq("id.codigoProyecto", codigoProyecto));
+		Criteria criteria= detachedCriteria.getExecutableCriteria(getSession());
+		return ((ProyectoPersona)criteria.uniqueResult());
+		
+	}
 
 
 }

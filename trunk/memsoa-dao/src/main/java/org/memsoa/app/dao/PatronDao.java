@@ -6,33 +6,33 @@ package org.memsoa.app.dao;
 import java.util.List;
 
 import org.memsoa.app.dao.base.AbstractDao;
-import org.memsoa.app.model.Categoria;
+import org.memsoa.app.model.Patron;
 
 /**
  * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
  * @project memsoa-dao
- * @class CategoriaDao
- * @date 23/07/2013
+ * @class PatronDao
+ * @date 7/08/2013
  *
  */
-public interface CategoriaDao extends AbstractDao<Categoria, String>{
+public interface PatronDao extends AbstractDao<Patron, String> {
 
 	/**
 	 * 
 	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 * @date 18/08/2013
-	 * @param codImpl
-	 * @return List<{@link Categoria}>
+	 * @date 7/08/2013
+	 * @return List<{@link Patron}>
 	 * @throws Exception
 	 */
-	List<Categoria> findByImplementacion(Long codImpl)throws Exception;
+	public List<Patron> findAll() throws Exception;
 	
 	/**
-	 * consulta todas las entidades
+	 * 
 	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 * @date 23/07/2013
-	 * @return List<{@link Categoria}>
+	 * @date 18/08/2013
+	 * @param codCate
+	 * @return  List<{@link Patron}>
 	 * @throws Exception
 	 */
-	List<Categoria> findAll()throws Exception;
+	 List<Patron> findByCategoria(String codCate) throws Exception;
 }

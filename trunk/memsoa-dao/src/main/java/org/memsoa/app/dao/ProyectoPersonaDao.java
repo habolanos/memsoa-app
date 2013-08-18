@@ -42,4 +42,16 @@ public interface ProyectoPersonaDao extends AbstractDao<ProyectoPersona, Proyect
 	 * @throws Exception
 	 */
 	Integer countByNameRolEstado(String nombre,String codigoRol,String estado)throws Exception;
+	
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 7/08/2013
+	 * @param codigoProyecto
+	 * @param codigoRol
+	 * @param codigoPersona
+	 * @return {@link ProyectoPersona}
+	 * @throws Exception
+	 */
+	 ProyectoPersona findByid(Long codigoProyecto,String codigoRol,String codigoPersona)throws Exception;
 }

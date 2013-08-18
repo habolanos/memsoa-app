@@ -38,12 +38,23 @@ public class CategoriaFacadeImpl extends AbstractFacadeImpl<Categoria,String> im
 
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 *@date 23/07/2013
+	 *@date 18/08/2013
+	 * @see org.memsoa.app.facade.CategoriaFacade#findByImplementacion(java.lang.Long)
+	 */
+	@Override
+	public List<Categoria> findByImplementacion(Long codImpl) throws Exception {
+		return categoriaService.findByImplementacion(codImpl);
+	}
+
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 18/08/2013
 	 * @see org.memsoa.app.facade.CategoriaFacade#findAll()
 	 */
 	@Override
 	public List<Categoria> findAll() throws Exception {
 		return categoriaService.findAll();
 	}
+
 
 }
