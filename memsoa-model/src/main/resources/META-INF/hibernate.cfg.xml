@@ -23,5 +23,6 @@
 		<mapping resource="org/memsoa/app/model/Proyecto.hbm.xml" />
 		<mapping resource="org/memsoa/app/model/ProyectoPersona.hbm.xml" />
 		<mapping resource="org/memsoa/app/model/Rol.hbm.xml" />
+		<mapping resource="org/memsoa/app/model/PatronPrincipio.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

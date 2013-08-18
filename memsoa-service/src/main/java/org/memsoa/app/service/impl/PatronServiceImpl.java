@@ -5,10 +5,10 @@ package org.memsoa.app.service.impl;
 
 import java.util.List;
 
-import org.memsoa.app.dao.CategoriaDao;
+import org.memsoa.app.dao.PatronDao;
 import org.memsoa.app.dao.base.AbstractDao;
-import org.memsoa.app.model.Categoria;
-import org.memsoa.app.service.CategoriaService;
+import org.memsoa.app.model.Patron;
+import org.memsoa.app.service.PatronService;
 import org.memsoa.app.service.base.AbstractServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,45 +16,44 @@ import org.springframework.stereotype.Service;
 /**
  * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
  * @project memsoa-service
- * @class CategoriaServiceImpl
- * @date 23/07/2013
+ * @class PatronServiceImpl
+ * @date 7/08/2013
  *
  */
 @Service
-public class CategoriaServiceImpl extends AbstractServiceImpl<Categoria,String> implements CategoriaService{
+public class PatronServiceImpl extends AbstractServiceImpl<Patron,String> implements PatronService {
 
 	@Autowired
-	private CategoriaDao categoriaDao;
+	private PatronDao patronDao;
 	
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 *@date 23/07/2013
+	 *@date 7/08/2013
 	 * @see org.memsoa.app.service.base.AbstractServiceImpl#getDao()
 	 */
 	@Override
-	public AbstractDao<Categoria, String> getDao() throws Exception {
-		return categoriaDao;
+	public AbstractDao<Patron, String> getDao() throws Exception {
+		return patronDao;
+	}
+
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 7/08/2013
+	 * @see org.memsoa.app.service.PatronService#findAll()
+	 */
+	@Override
+	public List<Patron> findAll() throws Exception {
+		return patronDao.findAll();
 	}
 
 	/**
 	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
 	 *@date 18/08/2013
-	 * @see org.memsoa.app.service.CategoriaService#findByImplementacion(java.lang.Long)
+	 * @see org.memsoa.app.service.PatronService#findByCategoria(java.lang.String)
 	 */
 	@Override
-	public List<Categoria> findByImplementacion(Long codImpl) throws Exception {
-		return categoriaDao.findByImplementacion(codImpl);
+	public List<Patron> findByCategoria(String codCate) throws Exception {
+		return patronDao.findByCategoria(codCate);
 	}
-
-	/**
-	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
-	 *@date 18/08/2013
-	 * @see org.memsoa.app.service.CategoriaService#findAll()
-	 */
-	@Override
-	public List<Categoria> findAll() throws Exception {
-		return categoriaDao.findAll();
-	}
-
 
 }

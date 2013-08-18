@@ -80,5 +80,16 @@ public class ProyectoPersonaServiceImpl extends AbstractServiceImpl<ProyectoPers
 	public void saveOrUpdate(ProyectoPersona entity) throws Exception {
 		super.saveOrUpdate(entity);
 	}
+
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 7/08/2013
+	 * @see org.memsoa.app.service.ProyectoPersonaService#findByid(java.lang.Long, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public ProyectoPersona findByid(Long codigoProyecto, String codigoRol,
+			String codigoPersona) throws Exception {
+		return proyectoPersonaDao.findByid(codigoProyecto, codigoRol, codigoPersona);
+	}
 	
 }

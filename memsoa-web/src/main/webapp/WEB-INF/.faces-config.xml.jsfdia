@@ -18,6 +18,11 @@
     PATH="/pages/forms/implementation/implementation.jspx"
     TARGET="rules:#pages#forms#implementation#implementation.jspx"
     TITLE="goImplementation" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="goEvaluation::#pages#forms#evaluation#evaluation.jspx"
+    NAME="output3" PATH="/pages/forms/evaluation/evaluation.jspx"
+    TARGET="rules:#pages#forms#evaluation#evaluation.jspx"
+    TITLE="goEvaluation" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#forms#projects#project.jspx"
@@ -28,4 +33,6 @@
   NAME="rules:#pages#forms#implementation#implementation.jspx"
   PATH="/pages/forms/implementation/implementation.jspx"
   SHAPE="272,433,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#forms#evaluation#evaluation.jspx"
+  PATH="/pages/forms/evaluation/evaluation.jspx" SHAPE="288,577,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

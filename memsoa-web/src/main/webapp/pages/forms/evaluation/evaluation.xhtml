@@ -15,80 +15,49 @@
 		<f:loadBundle basename="i18n.msg-evaluation" var="msgEva" />
 		<h:form id="formProject">
 			<p:growl id="growl" showDetail="true" sticky="true" />  
-			<p:panel header="#{msgEva.lblproyecto}" id="pnlProject">
-					<p:panelGrid columns="2">
-						<p:row>
-							<p:column styleClass="ui-widget-header">
-								<p:outputLabel value="#{msgEva.lblNombreProyecto}" />
-							</p:column>
-							<p:column>
-								<p:outputLabel value="#{evaluacionUI.proyecto.nombre}" />
-							</p:column>
-						</p:row>
-						<p:row>
-							<p:column styleClass="ui-widget-header">
-								<p:outputLabel value="#{msgEva.lblOrganizacion}" />
-							</p:column>
-							<p:column>
-								<p:outputLabel value="#{evaluacionUI.proyecto.organizacion}" />
-							</p:column>
-						</p:row>
-						<p:row>
-							<p:column styleClass="ui-widget-header">
-								<p:outputLabel value="#{msgEva.lblUrl}" />
-							</p:column>
-							<p:column>
-								<p:outputLabel value="#{evaluacionUI.proyecto.url}" />
-							</p:column>
-						</p:row>
-						<p:row>
-							<p:column styleClass="ui-widget-header">
-								<p:outputLabel value="#{msgEva.lblPais}" />
-							</p:column>
-							<p:column>
-								<p:outputLabel value="#{evaluacionUI.proyecto.pais}" />
-							</p:column>
-						</p:row>
-						<p:row>
-							<p:column styleClass="ui-widget-header">	
-								<p:outputLabel value="#{msgEva.lblObservacion}" />
-							</p:column>
-							<p:column>
-								<p:inputTextarea readonly="true" value="#{evaluacionUI.proyecto.observacion}"
-									cols="100" maxlength="200" rows="3" />
-							</p:column>
-						</p:row>		
-				</p:panelGrid>	
-			</p:panel>
-			<p:panel header="#{msgEva.lblEvaluacion}" id="pnlEvaluacion">
-				<h:panelGrid columns="2">
-					<p:outputLabel value="#{msgEva.lblImplementacion}" />
-					<h:panelGrid>
-						<p:selectOneMenu id="implmentacion" 
-							value="#{evaluacionUI.evaluacion.implementacion.codigoImplementacion}">
-							<f:selectItems value="#{evaluacionUI.listImplementaciones}" />
+			<p:panel header="#{msgEva.lblInfoEvaluacion}">
+				<h:panelGrid width="100%">
+					<h:panelGrid  columns="2" width="100%">
+						<p:outputLabel value="#{msgEva.lblImplementacion}:" style="font-weight: bold;"/>
+						<p:selectOneMenu value="#{evaluacionUI.evaluacion.implementacion.codigoImplementacion}">
+							<f:selectItems value="#{evaluacionUI.listImplementacion}" />
+							<p:ajax event="change" update="pnl_eval" listener="#{evaluacionUI.listenerImplementacion(evaluacionUI.evaluacion.implementacion.codigoImplementacion)}"/>
 						</p:selectOneMenu>
-						<p:message for="implmentacion" />
 					</h:panelGrid>
-					<p:outputLabel value="#{msgEva.lblNombrePersona}" />
-					<h:panelGrid columns="2">
-						<p:autoComplete id="persona" value="#{evaluacionUI.evaluacion.persona}" 
-							completeMethod="#{evaluacionUI.completePersona}" var="p" converter="persona"
-							itemLabel="#{p.nombreCompleto}" itemValue="#{p}" forceSelection="true">  
-			            </p:autoComplete> 
+					<h:panelGrid columns="4" cellspacing="10px" width="100%">
+						<p:outputLabel value="#{msgEva.lblFecha}:" style="font-weight: bold;"/>
+						<h:outputLabel value="#{evaluacionUI.evaluacion.fechaActualizacion}">
+							<f:convertDateTime pattern="dd-MMM-yyyy"/>
+						</h:outputLabel>
+						<p:outputLabel value="#{msgEva.lblProyecto}:" style="font-weight: bold;"/>
+						<p:outputLabel value="#{evaluacionUI.proyecto.nombre}" />
+						
+						<p:outputLabel value="#{msgEva.lblEvaluador}:" style="font-weight: bold;"/>
+						<p:outputLabel value="#{evaluacionUI.proyectoPersona.nombrePersona}" />
+						
+						<p:outputLabel value="#{msgEva.lblRol}:" style="font-weight: bold;"/>
+						<p:outputLabel value="#{evaluacionUI.proyectoPersona.nombreRol}" />
 					</h:panelGrid>
-					
 				</h:panelGrid>
-			</p:panel>		
-			<p:fieldset>
-				<div align="center">
-				<p:commandButton value="#{msgEva.btnGuardar}" action="#{evaluacionUI.actionGuardar}" 
-					process="@form" update="@form"/>
-				<p:commandButton value="#{msgEva.btnLimpiar}" action="#{evaluacionUI.actionLimpiar}" 
-					process="@this pnlEvaluacion" update="pnlEvaluacion"/>
-				<p:commandButton value="#{msgEva.btnRegresar}" action="#{evaluacionUI.actionRegresar}"/>
-				</div>
-			</p:fieldset>
+			</p:panel><br />
+			<p:panel header="#{msgEva.lblEvalImple}" id="pnl_eval">
+				<h:panelGrid>
+					<p:outputLabel value="#{msgEva.lblCategoria}:" style="font-weight: bold;"/>
+					<p:selectOneMenu value="#{evaluacionUI.categoria.codigoCategoria}">
+						<f:selectItems value="#{evaluacionUI.listCategorias}" />
+						<p:ajax event="change" update="pnl_eval" listener="#{evaluacionUI.listenerCategoria(evaluacionUI.categoria.codigoCategoria)}"/>
+					</p:selectOneMenu>		
+					<p:outputLabel value="#{msgEva.lblPatron}:" style="font-weight: bold;"/>
+					<p:selectOneMenu value="#{evaluacionUI.patron.codigoPatron}">
+						<f:selectItems value="#{evaluacionUI.listPatrones}" />
+						<p:ajax event="change" update="pnl_eval" listener="#{evaluacionUI.listenerPatron(evaluacionUI.patron.codigoPatron)}"/>
+					</p:selectOneMenu>		
+					<p:outputLabel value="#{msgEva.lblPrincipios}:" style="font-weight: bold;"/>
+					<p:selectOneMenu value="#{evaluacionUI.principio.codigoPrincipio}">
+						<f:selectItems value="#{evaluacionUI.listPrincipios}" />
+					</p:selectOneMenu>		
+				</h:panelGrid>
+			</p:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>

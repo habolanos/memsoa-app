@@ -58,5 +58,15 @@ public class ProyectoPersonaFacadeImpl  extends AbstractFacadeImpl<ProyectoPerso
 			String estado) throws Exception {
 		return proyectoPersonaService.countByNameRolEstado(nombre, codigoRol, estado);
 	}
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 7/08/2013
+	 * @see org.memsoa.app.facade.ProyectoPersonaFacade#findByid(java.lang.Long, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public ProyectoPersona findByid(Long codigoProyecto, String codigoRol,
+			String codigoPersona) throws Exception {
+		return proyectoPersonaService.findByid(codigoProyecto, codigoRol, codigoPersona);
+	}
 
 }
