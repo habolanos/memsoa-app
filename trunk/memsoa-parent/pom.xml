@@ -79,12 +79,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>nexus</id>
+			<id>local</id>
 			<name>Repository Name</name>
 			<url>http://localhost:8081/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>nexus</id>
+			<id>local</id>
 			<name>Repository Name</name>
 			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
