@@ -5,6 +5,11 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
+			<from-outcome>goInbox</from-outcome>
+			<to-view-id>/pages/forms/inbox.jspx</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>goProject</from-outcome>
 			<to-view-id>/pages/forms/projects/project.jspx</to-view-id>
 		</navigation-case>

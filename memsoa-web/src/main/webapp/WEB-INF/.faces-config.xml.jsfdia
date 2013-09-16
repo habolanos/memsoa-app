@@ -5,17 +5,16 @@
   model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="goProject::#pages#forms#projects#project.jspx" NAME="output"
-    PATH="/pages/forms/projects/project.jspx"
-    TARGET="rules:#pages#forms#projects#project.jspx" TITLE="goProject" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="goInbox::#pages#forms#inbox.jspx"
-    NAME="output1" PATH="/pages/forms/inbox.jspx"
+    NAME="output2" PATH="/pages/forms/inbox.jspx"
     TARGET="rules:#pages#forms#inbox.jspx" TITLE="goInbox" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
+    ID="goProject::#pages#forms#projects#project.jspx" NAME="output1"
+    PATH="/pages/forms/projects/project.jspx"
+    TARGET="rules:#pages#forms#projects#project.jspx" TITLE="goProject" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
     ID="goImplementation::#pages#forms#implementation#implementation.jspx"
-    NAME="output2"
-    PATH="/pages/forms/implementation/implementation.jspx"
+    NAME="output" PATH="/pages/forms/implementation/implementation.jspx"
     TARGET="rules:#pages#forms#implementation#implementation.jspx"
     TITLE="goImplementation" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT

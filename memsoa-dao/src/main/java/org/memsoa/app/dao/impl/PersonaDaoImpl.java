@@ -38,5 +38,22 @@ public class PersonaDaoImpl extends AbstractDaoImpl<Persona, String> implements 
 		Criteria criteria=detachedCriteria.getExecutableCriteria(getSession());
 		return criteria.list();
 	}
+	/**
+	 * 
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 15/09/2013
+	 * @see org.memsoa.app.dao.PersonaDao#findByEmailClave(java.lang.String, java.lang.String)
+	 */
+	public Persona findByEmailClave(String email,String clave) throws Exception {
+		DetachedCriteria detachedCriteria= DetachedCriteria.forClass(Persona.class);
+		if(email!=null && email.length()>0){
+			detachedCriteria.add(Restrictions.eq("emailPersona", email));
+		}
+		if(clave!=null && clave.length()>0){
+			detachedCriteria.add(Restrictions.eq("clave", clave));
+		}
+		Criteria criteria=detachedCriteria.getExecutableCriteria(getSession());
+		return (Persona)criteria.uniqueResult();
+	}
 
 }

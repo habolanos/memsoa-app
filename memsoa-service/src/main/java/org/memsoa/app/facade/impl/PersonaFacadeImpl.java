@@ -46,4 +46,15 @@ public class PersonaFacadeImpl extends AbstractFacadeImpl<Persona, String> imple
 		return personaService.findByname(name);
 	}
 
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 15/09/2013
+	 * @see org.memsoa.app.facade.PersonaFacade#findByEmailClave(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Persona findByEmailClave(String email, String clave)
+			throws Exception {
+		return personaService.findByEmailClave(email, clave);
+	}
+
 }
