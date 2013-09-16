@@ -46,4 +46,15 @@ public class PersonaServiceImpl extends AbstractServiceImpl<Persona,String> impl
 		return personaDao.findByname(name);
 	}
 
+	/**
+	 *@author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 *@date 15/09/2013
+	 * @see org.memsoa.app.service.PersonaService#findByEmailClave(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Persona findByEmailClave(String email, String clave)
+			throws Exception {
+		return personaDao.findByEmailClave(email, clave);
+	}
+
 }

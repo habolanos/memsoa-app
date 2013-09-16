@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/pages/templates/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{msgIni.lblTitulo}" />
+	</ui:define>
+	<ui:define name="content">
+		<f:loadBundle basename="i18n.messages" var="msg" />
+		<f:loadBundle basename="i18n.msg-inicio" var="msgIni" />
+		<h:form id="formInicio">
+			<div align="center">
+				<p:messages autoUpdate="true" globalOnly="true"/>
+				<table>
+					<tr>
+						<td >
+							<p:panel header="#{msgIni.lblTitulo}">
+								<h:panelGrid columns="2">
+									<p:outputLabel value="#{msgIni.lblEmail}"/>
+									<h:panelGrid>
+										<p:inputText id="inicio_email" value="#{inicioSesionUI.email}" size="50" maxlength="100"/>
+										<p:watermark for="inicio_email" value="#{msgIni.lblEmail}" />  
+										<p:message id="msg_inicio_email" for="inicio_email"  />
+									</h:panelGrid>
+									
+									<p:outputLabel value="#{msgIni.lblClave}"/>
+									<h:panelGrid>
+										<p:password id="inicio_clave" value="#{inicioSesionUI.clave}" size="50" maxlength="20"/>
+										<p:message id="msg_inicio_clave" for="inicio_clave"  />
+									</h:panelGrid>
+								</h:panelGrid>
+								<h:panelGrid >
+									<p:commandButton value="#{msgIni.btnAceptar}" action="#{inicioSesionUI.actionValidate}" 
+										onclick="startTime();" process="@form" update="@form"/>
+								</h:panelGrid>
+							</p:panel>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -26,4 +26,14 @@ public interface PersonaService extends AbstractService<Persona, String>{
 	 * @throws Exception
 	 */
 	List<Persona> findByname(String name)throws Exception;
+	/**
+	 * 
+	 * @author <a href="mailto:cristian.arboleda@premize.com">Cristian M. Arboleda</a>
+	 * @date 15/09/2013
+	 * @param email
+	 * @param clave
+	 * @return {@link Persona}
+	 * @throws Exception
+	 */
+	Persona findByEmailClave(String email,String clave) throws Exception ;
 }
